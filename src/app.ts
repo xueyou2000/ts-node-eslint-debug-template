@@ -1,19 +1,21 @@
-import Crawler from "crawler";
+import Crawler from 'crawler'
 
 const crawler = new Crawler({
-  maxConnections: 10,
+  maxConnections: 1,
   // This will be called for each crawled page
   callback: (error, res, done) => {
     if (error) {
-      console.log(error);
+      console.log(error)
     } else {
-      const $ = res.$;
+      const $ = res.$
       // $ is Cheerio by default
       //a lean implementation of core jQuery designed specifically for the server
-      console.log($("title").text());
-    }
-    done();
-  },
-});
+      console.log($('title').text())
 
-crawler.queue("http://www.amazon.com");
+      console.log('ok')
+    }
+    done()
+  }
+})
+
+crawler.queue('https://www.zhihu.com/')
